@@ -252,11 +252,11 @@ module Liquid
     def to_number(obj)
       case obj
       when Float
-        BigDecimal.new(obj.to_s)
+        BigDecimal(obj.to_s)
       when Numeric
         obj
       when String
-        (obj.strip =~ /^\d+\.\d+$/) ? BigDecimal.new(obj) : obj.to_i
+        (obj.strip =~ /^\d+\.\d+$/) ? BigDecimal(obj) : obj.to_i
       else
         0
       end
